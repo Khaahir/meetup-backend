@@ -21,13 +21,11 @@ jobs:
       
 
 
-
-      - name: Bygg Docker Image
-        run: docker build -t Khaahir/meetup-backend .
-
-      - name: pusch docker Image
-        run: docker push Khaahir/meetup-backend
-  
+      - name: Bygg Docker Image och pusha till Docker Hub
+        with:
+          context: .
+          push: true
+          tags: khaahii/meetup-backend:latest 
 
 
       - name: Trigga Render Deployment
