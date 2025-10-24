@@ -26,7 +26,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: khaahii/meetup-backend:latest 
+          tags: khaahir/meetup-backend:latest 
 
 
       - name: Trigga Render Deployment
