@@ -11,7 +11,7 @@ const pool = new Pool(connectionString ?{
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
     ssl: { rejectUnauthorized: false }
-
+    
 })
 
 export default pool

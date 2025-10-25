@@ -1,5 +1,6 @@
 import { getAllMeetups ,getMeetupDetails } from '../models/GetmeetUpmodel.mjs'
 
+
 export async function listMeetups(req, res) {
   try {
     const search     = String(req.query?.search ?? '').trim();
