@@ -1,9 +1,11 @@
 import * as userModel from '../models/usermodel.mjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
 
+dotenv.config()
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_LIFETIME = '24h'; 
-
+console.log('JWT_SECRET är satt till:', JWT_SECRET ? 'JA (längd: ' + JWT_SECRET.length + ')' : 'NEJ');
 
 const generateToken = (user) => {
     return jwt.sign(

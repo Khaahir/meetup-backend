@@ -31,10 +31,12 @@ export async function getAllMeetups({ search = '', dateFilter = '', dateFrom = '
 }
 
 export async function getMeetupDetails(meetupId) {
-    const query = `
-      SELECT id, title, description, location, date, time
-    FROM public.meetups
-    WHERE id = $1
+const query = `
+        SELECT m.id, m.title, m.description, m.location, m.date, m.time, u.id AS attendee_id, u.username AS attendee_username
+        FROM meetups m
+        LEFT JOIN attendees a ON m.id = a.meetup_id
+        LEFT JOIN users u ON a.user_id = u.id
+        WHERE m.id = $1;
     `;
     const { rows } = await pool.query(query, [meetupId]);
 
