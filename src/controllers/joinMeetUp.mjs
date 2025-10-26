@@ -1,4 +1,4 @@
-import { attendMeetupQuery, leaveMeetupQuery } from "../models/joinMeetUpModel.mjs";
+import { attendMeetupQuery, leaveMeetupQuery } from '../models/joinMeetUpModel.mjs';
 
 
 export async function attendMeetup(req, res) {
