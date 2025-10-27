@@ -9,13 +9,18 @@ console.log("vi testart lite här!!!!!!")
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: [
-  ],
-  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173/", // for local testing
+      "http://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/",
+      "https://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
