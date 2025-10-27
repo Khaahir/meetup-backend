@@ -5,11 +5,13 @@ import router from "./src/routes.mjs";
 import cors from "cors";
 
 dotenv.config();
+console.log("vi testart lite här!!!!!!")
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
   origin: [
+    // put your FRONTEND origin(s) here (Postman ignores CORS)
     'https://meetup-backend-my4m.onrender.com'
   ],
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
@@ -19,17 +21,7 @@ app.use(cors({
 
 app.use(express.json());
 
-// simple logger to confirm requests reach this process
-app.use((req, _res, next) => {
-  console.log(`[REQ] ${req.method} ${req.originalUrl}`);
-  next();
-});
 
-// TEMP test route to prove POST /login works
-app.post('/login', (_req, res) => {
-  console.log('>>> HIT /login test route');
-  res.json({ ping: 'ok-from-server' });
-});
 
 app.get('/', (_req, res) => {
   res.status(200).send('meetup backend api is running');
