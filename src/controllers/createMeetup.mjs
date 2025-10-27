@@ -1,9 +1,10 @@
-// controllers/createMeetup.mjs (eller var din controller ligger)
+// controllers/createMeetup.mjs
 import { createMeetup as createMeetupModel } from '../models/CreateMeetupModel.mjs';
 
 export async function createMeetup(req, res) {
   try {
-    const userId = req.user?.id; 
+
+    const userId = req.user?.userId ?? req.user?.id; 
     if (!userId) return res.status(401).json({ message: 'No token' });
 
     const { title, description, location, date, time, capacity } = req.body || {};
@@ -15,14 +16,13 @@ export async function createMeetup(req, res) {
     if (!isValidDate || !isValidTime)
       return res.status(400).json({ message: 'Ogiltigt datum- eller tidsformat.' });
 
-
     const row = await createMeetupModel({
       title,
       description,
       location,
       date,
       time,
-      creator_id: userId,
+      creator_id: Number(userId),
       capacity: capacity ?? null,
     });
 
