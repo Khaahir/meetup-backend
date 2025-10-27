@@ -19,6 +19,7 @@ app.use(cors({
 
 app.use(express.json())
 const port = process.env.PORT || 3000
+app.post('/login', (req, res) => res.json({ ping: 'ok-from-server' }));
 
 app.get("/", (req,res)=>{
     res.status(200).send('meetup backend api is running')
