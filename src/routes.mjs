@@ -1,7 +1,7 @@
 import express from 'express';
 import { listMeetups ,listMeetupsDetails } from './controllers/getMeetUp.mjs';
 import { createMeetup } from './controllers/createMeetup.mjs';
-import { register ,login } from './controllers/authController.mjs';
+import { register, login } from './controllers/authController.mjs';
 import { attendMeetup ,leaveMeetup } from './controllers/joinMeetUp.mjs';
 import { addReview, getReviews } from './controllers/meetUpReview.mjs';
 import authMiddleware from './middleware/authMiddleware.mjs';
