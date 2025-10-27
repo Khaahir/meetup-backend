@@ -5,14 +5,13 @@ import router from "./src/routes.mjs";
 import cors from "cors";
 
 dotenv.config();
-console.log("vi testart lite här!!!!!!")
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(
   cors({
     origin: [
-      "http://localhost:5173/", // for local testing
+      "http://localhost:3000/",
       "http://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/",
       "https://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/"
     ],

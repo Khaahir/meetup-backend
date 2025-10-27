@@ -3,8 +3,8 @@ import { createMeetup as createMeetupModel } from '../models/CreateMeetupModel.m
 
 export async function createMeetup(req, res) {
   try {
-    const userId = req.user?.id; // kräver att authMiddleware sätter req.user
-    if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+    const userId = req.user?.id; 
+    if (!userId) return res.status(401).json({ message: 'No token' });
 
     const { title, description, location, date, time, capacity } = req.body || {};
     if (!title || !location || !date || !time)
