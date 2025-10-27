@@ -1,4 +1,3 @@
-// controllers/createMeetup.mjs
 import { createMeetup as createMeetupModel } from '../models/CreateMeetupModel.mjs';
 
 export async function createMeetup(req, res) {
@@ -24,6 +23,10 @@ export async function createMeetup(req, res) {
       time,
       creator_id: Number(userId),
       capacity: capacity ?? null,
+       creator: {
+    id: row.creator_id,
+    name: row.creator_name,
+       }
     });
 
     return res.status(201).json(row);

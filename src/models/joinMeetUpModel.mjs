@@ -1,4 +1,3 @@
-// src/models/joinMeetUpModel.mjs
 import pool from '../../db/pool.mjs';
 
 export async function attendMeetupQuery(userId, meetupId) {
