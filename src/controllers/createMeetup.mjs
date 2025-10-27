@@ -1,9 +1,12 @@
-
+// controllers/createMeetup.mjs (eller var din controller ligger)
 import { createMeetup as createMeetupModel } from '../models/CreateMeetupModel.mjs';
 
 export async function createMeetup(req, res) {
   try {
-    const { title, description, location, date, time } = req.body || {};
+    const userId = req.user?.id; // kräver att authMiddleware sätter req.user
+    if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+
+    const { title, description, location, date, time, capacity } = req.body || {};
     if (!title || !location || !date || !time)
       return res.status(400).json({ message: 'title, location, date och time krävs.' });
 
@@ -12,7 +15,17 @@ export async function createMeetup(req, res) {
     if (!isValidDate || !isValidTime)
       return res.status(400).json({ message: 'Ogiltigt datum- eller tidsformat.' });
 
-    const row = await createMeetupModel({ title, description, location, date, time });
+
+    const row = await createMeetupModel({
+      title,
+      description,
+      location,
+      date,
+      time,
+      creator_id: userId,
+      capacity: capacity ?? null,
+    });
+
     return res.status(201).json(row);
   } catch (err) {
     console.error('createMeetup error:', { message: err.message, code: err.code, detail: err.detail });
