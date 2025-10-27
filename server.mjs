@@ -11,8 +11,6 @@ const port = process.env.PORT || 3000;
 
 app.use(cors({
   origin: [
-    // put your FRONTEND origin(s) here (Postman ignores CORS)
-    'https://meetup-backend-my4m.onrender.com'
   ],
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],

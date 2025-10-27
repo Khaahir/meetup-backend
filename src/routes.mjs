@@ -5,7 +5,7 @@ import { register ,login } from './controllers/authController.mjs';
 import { attendMeetup ,leaveMeetup } from './controllers/joinMeetUp.mjs';
 import { addReview, getReviews } from './controllers/meetUpReview.mjs';
 import authMiddleware from './middleware/authMiddleware.mjs';
-import { getProfile } from './controllers/profilecontroller.mjs';
+import { getProfile } from './controllers/profileController.mjs';
 
 const router = express.Router();
 
