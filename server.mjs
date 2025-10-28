@@ -12,9 +12,10 @@ const port = process.env.PORT || 3000;
 app.use(
   cors({
     origin: [
-      "http://localhost:3000/",
-      "http://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/",
-      "https://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com/"
+  'http://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com',
+  'https://meetups-frontend-gruppexamination.s3-website.eu-north-1.amazonaws.com',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
