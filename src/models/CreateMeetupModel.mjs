@@ -19,8 +19,8 @@ export async function createMeetup({
     SELECT
       i.id, i.title, i.description, i.location, i.date, i.time,
       i.creator_id, i.capacity,
-      u.username AS creator_name,   -- byt till rätt kolumn om du använder t.ex. "name" / "full_name"
-      u.email    AS creator_email   -- valfritt
+      u.username AS creator_name,  
+      u.email    AS creator_email  
     FROM ins i
     LEFT JOIN users u ON u.id = i.creator_id;
   `;

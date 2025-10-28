@@ -3,6 +3,7 @@ import express from "express";
 import pool from "./db/pool.mjs";
 import router from "./src/routes.mjs";
 import cors from "cors";
+console.log("vi testar cors")
 
 dotenv.config();
 const app = express();
