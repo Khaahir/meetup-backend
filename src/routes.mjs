@@ -6,7 +6,7 @@ import { attendMeetup ,leaveMeetup } from './controllers/joinMeetUp.mjs';
 import { addReview, getReviews } from './controllers/meetUpReview.mjs';
 import authMiddleware from './middleware/authMiddleware.mjs';
 import { getProfile } from './controllers/profileController.mjs';
-
+import { deleteMeetup } from './controllers/deleteMeetup.mjs';
 const router = express.Router();
 
 router.post('/register', register); 
@@ -16,6 +16,7 @@ router.post('/login', login);
 router.get('/meetups', authMiddleware, listMeetups);
 router.get('/meetups/:id', authMiddleware, listMeetupsDetails);
 router.post('/meetups',authMiddleware, createMeetup);
+router.delete('/meetups/:id', authMiddleware , deleteMeetup )
 
 
 router.post('/meetups/:id/attend' , authMiddleware , attendMeetup)
