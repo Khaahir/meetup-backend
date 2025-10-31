@@ -33,12 +33,12 @@ export async function register(req, res) {
         }
         
 
-        const token = generateToken(newUser);
 
 
         res.status(201).json({ 
             user: { id: newUser.id, username: newUser.username }, 
-            token 
+            message:`Avändaren ${username} har skapats`
+
         });
     } catch (error) {
 
