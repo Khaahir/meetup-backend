@@ -3,7 +3,8 @@ import express from "express";
 import pool from "./db/pool.mjs";
 import router from "./src/routes.mjs";
 import cors from "cors";
-console.log("vi testar cors")
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 dotenv.config();
 const app = express();
@@ -17,13 +18,15 @@ app.use(
   'http://localhost:5173',
   'http://127.0.0.1:5173',
     ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
 app.use(express.json());
+const swaggerDocument = YAML.load('./swagger.yaml');
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 

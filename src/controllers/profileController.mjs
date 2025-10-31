@@ -2,7 +2,7 @@ import * as profileModel from '../models/profileModel.mjs';
 
 
 export async function getProfile(req, res) {
-    const userId = req.user.userId; // Från token (authMiddleware)
+    const userId = req.user.userId; 
 
     try {
         const profile = await profileModel.getUserProfile(userId);

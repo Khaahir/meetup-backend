@@ -43,7 +43,6 @@ export async function getAllMeetups({
   if (dateFilter === 'upcoming') where.push('m.date >= CURRENT_DATE');
   if (dateFilter === 'past')     where.push('m.date < CURRENT_DATE');
 
-  // intervall
   if (dateFrom) {
     params.push(dateFrom);
     where.push(`m.date >= $${params.length}`);

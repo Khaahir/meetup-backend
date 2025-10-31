@@ -1,4 +1,3 @@
-// src/models/meetupModel.mjs
 import pool from '../../db/pool.mjs';
 
 export async function createMeetup({
